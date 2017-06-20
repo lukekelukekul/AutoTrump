@@ -16,7 +16,7 @@ var adjectives = ['great', 'incredible', 'unbelievable', 'the best', 'the greate
 var intheses = ['In these times', 'Right now', 'Really quickly', 'Now more than ever', 'During these hard hard times'];
 var imperatives = ['must', 'have to', 'need to', 'want to', 'will', 'can', 'should', 'will', 'am going to'];
 var agains = ['again', 'once more', 'how it used to be', 'right now'];
-var greatthings = ['AI', 'Cookies', 'Pineapple Pizza', 'Bouncy Castles', 'Rubber Rings', 'Hair', 'Russia', 'Fidget Spinners', 'Peppa Pig', 'Ryan Gosling', 'Katy Perry Songs', 'White Chocolate', 'Golden Retrievers', 'Mexicans'];
+var greatthings = ['AI', 'Cookies', 'Pineapple Pizza', 'Bouncy Castles', 'Rubber Rings', 'Hair', 'Russia', 'Fidget Spinners', 'Peppa Pig', 'Ryan Gosling', 'Katy Perry Songs', 'White Chocolate', 'Golden Retrievers', 'Mexicans', 'Weather Forecasting', ''];
 
 /*
  Demo:

@@ -2,7 +2,8 @@
 <head>
     <title>AutoTrump: Make AI Great Again</title>
     <meta name="author" content="Luke Berry">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <style type="text/css">
         .container {
@@ -32,52 +33,59 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://ichef-1.bbci.co.uk/news/624/cpsprodpb/C5C8/production/_89823605_ab83771a-b7bc-4e48-99ae-8aa6fa0cba37.jpg" height="250" />
-        <div class="header">
-            <h2>AutoTrump</h2>
-            <h4>Make AI Great Again</h4>
-        </div>
-        <br clear="all" />
-        <form class="form-inline" id="topicForm">
-                <div class="input-group full-width">
-                    <input type="text" class="form-control required" id="topicInput" name="topic" pattern="[A-Za-z]{1,*}" placeholder="Enter a topic for AutoTrump to talk about (e.g. Immigration)">
-                    <span class="input-group-btn" style="width: 20px;">
+<div class="container">
+    <img src="https://ichef-1.bbci.co.uk/news/624/cpsprodpb/C5C8/production/_89823605_ab83771a-b7bc-4e48-99ae-8aa6fa0cba37.jpg"
+         height="250"/>
+    <div class="header">
+        <h2>AutoTrump</h2>
+        <h4>Make AI Great Again</h4>
+    </div>
+    <br clear="all"/>
+    <form class="form-inline" id="topicForm" action="">
+        <div class="input-group full-width">
+            <input type="text" class="form-control required" id="topicInput" name="topic"
+                   placeholder="Enter a subject matter for AutoTrump to talk about">
+            <span class="input-group-btn" style="width: 20px;">
                       <button type="submit" class="btn btn-primary" id="submitButton">Go</button>
                     </span>
-                </div>
-        </form>
-        <br clear="all" />
-        <blockquote id="answerContainer" style="visibility: hidden;">
-            <p>"<span id="answerText"></span>"</p>
-            <footer>AutoTrump - <cite title="Source Title">Making <span id="makeitgreat">AI</span> Great Again</cite></footer>
-        </blockquote>
-    </div>
+        </div>
+    </form>
+    <br clear="all"/>
+    <blockquote id="answerContainer" style="visibility: hidden;">
+        <p>"<span id="answerText"></span>"</p>
+        <footer>AutoTrump - <cite title="Source Title">Making <span id="makeitgreat">AI</span> Great Again</cite>
+        </footer>
+    </blockquote>
+</div>
 
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://raw.githubusercontent.com/lukewizzy/AutoTrump/master/autotrump.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#answerContainer').hide();
-            $('#answerText').val('');
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://raw.githubusercontent.com/lukewizzy/AutoTrump/master/autotrump.js"></script>
+<script type="text/javascript">
+    var lastSearch = "";
+    $(document).ready(function () {
+        $('#answerText').val('');
+    });
 
-            $('#topicForm').submit(function() {
-                var topic = $('#topicInput').val().trim();
+    $('#topicForm').on('submit', function (e) {
+        e.preventDefault();
+        var topic = $('#topicInput').val().trim();
 
-                if (topic.length > 0) {
-                    $('#answerText').text(getRant(topic));
-                    $('#makeitgreat').text(getGreatThing());
+        if (topic === lastSearch) {
+            //return; // No need to do it again
+        }
 
-                    $('#answerContainer').css("visibility", "visible");
-                    $('#answerContainer').css("display", "block");
-                }
-                else {
-                    alert('You must enter a topic.');
+        if (topic.length > 0) {
+            $('#answerText').text(getRant(topic));
+            $('#makeitgreat').text(getGreatThing());
 
-                }
-                return false; // Don't refresh
-            });
-        });
-    </script>
+            $('#answerContainer').css("visibility", "visible");
+            $('#answerContainer').css("display", "block");
+            lastSearch = topic;
+        }
+        else {
+            alert('You must enter a topic.');
+        }
+    });
+</script>
 </body>
 </html>
