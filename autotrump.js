@@ -14,12 +14,12 @@ var fortimes = ['for all my life', 'throughout my career', 'since I was given a 
 var sogreatnesses = ['you have no idea how great', 'like so amazing', 'better than my tweets'];
 var adjectives = ['great', 'incredible', 'unbelievable', 'the best', 'the greatest', 'sexy', 'right', 'healthy', 'amazing'];
 var intheses = ['In these times', 'Right now', 'Really quickly', 'Now more than ever', 'During these hard hard times'];
-var imperatives = ['must', 'have to', 'need to', 'want to', 'will', 'can', 'should', 'will', 'are going to'];
+var imperatives = ['must', 'have to', 'need to', 'want to', 'will', 'can', 'should', 'will', 'am going to'];
 var agains = ['again', 'once more', 'how it used to be', 'right now'];
 var greatthings = ['AI', 'Cookies', 'Pineapple Pizza', 'Bouncy Castles', 'Rubber Rings', 'Hair', 'Russia', 'Fidget Spinners', 'Peppa Pig', 'Ryan Gosling', 'Katy Perry Songs', 'White Chocolate', 'Golden Retrievers', 'Mexicans'];
 
 /*
- Demos:
+ Demo:
  [well y'know], [TOPIC] is [something i care about so much]. [in fact/also/did you know], [I know all there is to know about] [TOPIC], [i really do].
  [I've been great at] [TOPIC] [for all my life], [like really good], [but/and/just] [TOPIC] is so [great/amazing/cool].
  [did you know], Obama did such a bad job of [TOPIC]. [In our great nation], we [can/must] make [TOPIC] [adjectives] [again].
@@ -29,14 +29,15 @@ function getRant(topic) {
     topic = topic.toLowerCase();
     var random = getRandomNumber(3);
     var rant = '';
+    var is = topic.charAt(topic.length-1) === 's' ? 'are' : 'is';
     switch (random) {
         case 1:
-            rant += getRandom(starts) + ', ' + topic + ' are ' + getRandom(passions) + '. ';
+            rant += getRandom(starts) + ', ' + topic + ' ' + is + ' ' + getRandom(passions) + '. ';
             rant += getRandom(conjunctions) + ' ' + getRandom(knowledges) + ' ' + topic + '. ' + getRandom(seriouslys) + ', ' + getRandom(reassurances) + '.';
             break;
         case 2:
             rant += getRandom(mygreatnesses) + ' ' + topic + '. I\'ve been ' + getRandom(adjectives) + ' at ' + topics + ' ' + getRandom(fortimes) + ', ' + getRandom(sogreatnesses) + '. ';
-            rant += getRandom(conjunctions) + ', me and ' + topic + ' are ' + getRandom(adjectives) + '.';
+            rant += getRandom(conjunctions) + ', me and ' + topic + ' ' + is + ' ' + getRandom(adjectives) + '.';
             break;
         default:
             rant += getRandom(starts) + ', Obama did such a bad job of ' + topic + '. ';
