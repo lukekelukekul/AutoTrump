@@ -6,6 +6,10 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <style type="text/css">
+        body {
+            text-align: center;
+        }
+
         .container {
             padding: 20px 10%;
         }
@@ -17,7 +21,6 @@
         }
 
         .header h2, .header h4 {
-            text-align: center;
             margin-top: 0;
             margin-bottom: 8px;
         }
@@ -56,6 +59,8 @@
         <footer>AutoTrump - <cite title="Source Title">Making <span id="makeitgreat">AI</span> Great Again</cite>
         </footer>
     </blockquote>
+    <br clear="all" />
+    <small>Created by <a href="http://lukegb.co.uk" target="_blank">Luke Berry</a> 2017.</small>
 </div>
 
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -63,7 +68,10 @@
 <script type="text/javascript">
     var lastSearch = "";
     $(document).ready(function () {
-        $('#answerText').val('');
+        if ($('#answerText').val().length > 0) {
+            $('#answerContainer').css("visibility", "visible");
+            $('#answerContainer').css("display", "block");
+        }
     });
 
     $('#topicForm').on('submit', function (e) {
